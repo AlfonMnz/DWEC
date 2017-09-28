@@ -7,13 +7,13 @@ function mayor_o_menor(numero, num_a_comprobar) {
     else {
         alert("El jugador 1 ha elegido un número mayor")
     }
-    var num_a_comprobar = window.prompt("INTRODUSE UN NUMEROSIKO AEH?");
+
 }
 
-
+var num_a_comprobar = window.prompt("INTRODUSE UN NUMEROSIKO AEH?");
 while (numero != num_a_comprobar){
 
     mayor_o_menor(numero, num_a_comprobar);
-
+    var num_a_comprobar = window.prompt("INTRODUSE UN NUMEROSIKO AEH?");
 }
 alert("ENHORABUENA SOSIO")
