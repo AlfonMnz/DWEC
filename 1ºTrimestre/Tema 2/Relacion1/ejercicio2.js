@@ -1,0 +1,16 @@
+var fecha_hoy = new Date()
+var fecha_85 = new Date()
+var fecha_187 = new Date()
+
+fecha_85.setDate(fecha_hoy.getDate() + 85)
+fecha_187.setDate(fecha_hoy.getDate() - 187)
+document.write("<br>La fecha de hoy es " + fecha_hoy)
+document.write("<br>La fecha de hoy + 85 es " + fecha_85)
+document.write("<br>La fecha de hoy - 187 es " + fecha_187)
+fecha_85.setDate(fecha_85.getYear() + 2)
+document.write("<br>La fecha_85 + 2 años es " + fecha_85)
+fecha_187.setDate(fecha_187.getHours() - 24)
+document.write("<br>La fecha_187 + 24 horas es " + fecha_187)
+var fecha_resto = new Date(fecha_85 - fecha_187)
+
+document.write("<br>" + fecha_resto)
