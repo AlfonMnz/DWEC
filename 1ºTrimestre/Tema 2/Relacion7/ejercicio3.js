@@ -31,7 +31,7 @@ function initMap() {
         geocodeLatLng(geocoder, map, infowindow);
 
 
-        setInterval(ActualizarMarcador, 300)
+        setInterval(ActualizarMarcador, 1300)
     })
 
     function ActualizarMarcador() {
@@ -42,8 +42,8 @@ function initMap() {
         }
 
         lista_posiciones.push({lat: prueba, lng: prueba2})
-        prueba += 0.001;
-        prueba2 -= 0.001;
+        prueba += 5;
+        prueba2 -= 5;
         console.log("+ " + prueba + " || " + prueba2);
 
         marker.position = {lat: prueba,lng:prueba2};
