@@ -1,12 +1,18 @@
 var marker;
 var map;
 var lista_posiciones = [];
+var uluru;
+var flightPath;
+var prueba;
+var prueba2;
+
 
 function initMap() {
+    let init = true;
     navigator.geolocation.getCurrentPosition(function (position) {
         console.log(position.coords.latitude + " " + position.coords.longitude);
 
-        var uluru = {lat: position.coords.latitude, lng: position.coords.longitude};
+        uluru = {lat: position.coords.latitude, lng: position.coords.longitude};
         map = new google.maps.Map(document.getElementById('map'), {
             zoom: 16,
             center: uluru
@@ -25,27 +31,24 @@ function initMap() {
         geocodeLatLng(geocoder, map, infowindow);
 
 
+        setInterval(ActualizarMarcador, 300)
     })
 
-
     function ActualizarMarcador() {
-        var localizacion;
-        var prueba = 99;
-        var prueba2 = -99;
-        navigator.geolocation.getCurrentPosition(function (position) {
-            localizacion = {lat: position.coords.latitude, lng: position.coords.longitude};
-            lista_posiciones.push({lat: prueba, lng: prueba2})
-            prueba+=5;
-            prueba2-=5;
-        });
-        marker = ({
-            map: map,
-            drawFocusRing: true,
-            animation: google.maps.Animation.BOUNCE,
-            position: localizacion
-        });
-        console.log(lista_posiciones);
-        var flightPath = new google.maps.Polyline({
+        if (init) {
+            init = false;
+            prueba = uluru.lat;
+            prueba2 = uluru.lng;
+        }
+
+        lista_posiciones.push({lat: prueba, lng: prueba2})
+        prueba += 0.001;
+        prueba2 -= 0.001;
+        console.log("+ " + prueba + " || " + prueba2);
+
+        marker.position = {lat: prueba,lng:prueba2};
+
+        flightPath = new google.maps.Polyline({
             path: lista_posiciones,
             geodesic: true,
             strokeColor: '#ff18ed',
@@ -53,34 +56,27 @@ function initMap() {
             strokeWeight: 2
         });
         flightPath.setMap(map);
-
-
-
-
+        for (obj of lista_posiciones) {
+            console.log("- " + obj.lat + " || " + obj.lng);
+        }
 
 
     }
 
-
-    setInterval(ActualizarMarcador, 500)
-
     function geocodeLatLng(geocoder, map, infowindow) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            console.log(position.coords.latitude + " " + position.coords.longitude);
-            var latlng = {lat: position.coords.latitude, lng: position.coords.longitude};
-            geocoder.geocode({'location': latlng}, function (results, status) {
-                if (status === 'OK') {
-                    if (results[1]) {
+        var latlng = uluru;
+        geocoder.geocode({'location': latlng}, function (results, status) {
+            if (status === 'OK') {
+                if (results[1]) {
 
-                        infowindow.setContent(results[1].formatted_address);
-                        infowindow.open(map, marker);
-                    } else {
-                        window.alert('No results found');
-                    }
+                    infowindow.setContent(results[1].formatted_address);
+                    infowindow.open(map, marker);
                 } else {
-                    window.alert('Geocoder failed due to: ' + status);
+                    window.alert('No results found');
                 }
-            });
-        })
+            } else {
+                window.alert('Geocoder failed due to: ' + status);
+            }
+        });
     }
 }
