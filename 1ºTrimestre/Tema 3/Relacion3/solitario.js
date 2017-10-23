@@ -1,14 +1,23 @@
+/**
+ * Created by PitoEuropeo on 22/10/2017.
+ */
 class Baraja {
     constructor(num_montones) {
         this.array_montones = []
-        this.crear_baraja(num_montones)
+        this.columnas = [];
+        this.crear_baraja_y_barajar(num_montones)
         this.organizar_baraja()
 
     }
 
-    crear_baraja(num_montones) {
+    crear_baraja_y_barajar(num_montones) {
         for (let i = 0; i <= num_montones; i++) {
             this.array_montones.push(new Monton(i))
+
+        }
+        for (let j = 0; j< this.array_montones.length;j++){
+            Baraja.shuffle(this.array_montones[j].array_cartas)
+
         }
     }
 
@@ -23,30 +32,76 @@ class Baraja {
         return a
     }
 
-    static mostrar_carta(carta) {
-        var status = Math.floor(Math.random() * 2)
-        if (status === 1) {
-            carta.status = true;
-        }
+    mover_carta(de_que_columna, de_que_fila = 0, a_que_columna) {
+
+        let array_a_mover = this.columnas[de_que_columna].splice(de_que_fila);
+        this.columnas[a_que_columna].push(...array_a_mover);
+        if (de_que_fila - 1 >= 0)
+            this.columnas[de_que_columna][de_que_fila - 1].status = true;
+        this.mostrar_baraja()
+
     }
+
+    mostrar_baraja() {
+        let html_str = '';
+        let tablero = document.getElementById('tablero');
+        for (let i = 0; i < this.columnas.length; i++) {
+            html_str += "<div class=columna>";
+            for (let j = 0; j < this.columnas[i].length; j++) {
+                html_str += "<div class=elemento>";
+                //Baraja.mostrar_carta(this.columnas[i][j], (this.columnas[i].length - 1));
+                if (this.columnas[i][j].status === true) {
+                    html_str += this.columnas[i][j].numero;
+                    html_str += this.columnas[i][j].palo
+                }
+                else {
+                    html_str += "🂠"
+                }
+
+                html_str += '</div>';
+            }
+            html_str += '</div>';
+        }
+        console.log(this.columnas)
+        tablero.innerHTML = html_str;
+    }
+
+//   organizar_baraja() {
+//        let array_columnas;
+//
+//
+//        for (let vagina = 0; vagina < this.array_montones[1].array_cartas.length; vagina++) {
+//            array_columnas = [];
+//            for (let i = 0; i < this.array_montones.length; i++) {
+//
+//                array_columnas.push(Baraja.shuffle(this.array_montones[i].array_cartas)[vagina])
+//            }
+//            this.columnas.push(array_columnas)
+//            this.columnas.forEach(columna => {
+//                columna[columna.length - 1].status = true;
+//            });
+//        }
+//
+//        this.mostrar_baraja()
+//    }
 
     organizar_baraja() {
-        for (let i = 0; i < this.array_montones.length; i++) {
-            document.write("<ul>montón " + i);
-            Baraja.shuffle(this.array_montones[i].array_cartas)
-            for (let j = 0; j < this.array_montones[i].array_cartas.length; j++) {
-                Baraja.mostrar_carta(this.array_montones[i].array_cartas[j])
-                if (this.array_montones[i].array_cartas[j].status === false) {
-                    document.write("<li> ||  </li>")
-                }
-                else
-
-                    document.write("<li>" + this.array_montones[i].array_cartas[j].numero + " || " + this.array_montones[1].array_cartas[j].palo + "</li>")
+        let array_columnas;
+        for (let i = 0; i < this.array_montones[1].array_cartas.length; i++) {
+            array_columnas = []
+            for (let j = 0; j < this.array_montones.length; j++) {
+                array_columnas.push(this.array_montones[j].array_cartas[i])
             }
-            document.write("</ul>")
-        }
+            this.columnas.push(array_columnas)
+            this.columnas.forEach(columna => {
+                columna[columna.length - 1].status = true;
+            });
+            console.log(this.columnas)
 
+        }
+        this.mostrar_baraja()
     }
+
 }
 
 class Monton {
@@ -67,6 +122,8 @@ class Monton {
 
 class Carta {
     constructor(numero, palo = 0) {
+        this.posicion = 0
+
         if (numero === 11) this.numero = 'J';
         else if (numero === 12) this.numero = 'Q';
         else if (numero === 13) this.numero = 'K';
@@ -79,4 +136,4 @@ class Carta {
     }
 }
 
-b = new Baraja(90)
+b = new Baraja(4)
