@@ -1,0 +1,51 @@
+h1 {
+    font-size: 40px;
+    font-family: Arial;
+    letter-spacing: 50px;
+    word-spacing: 50px;
+}
+
+h2 {
+    font-size: 30px;
+    font-family: "Arial Black";
+    letter-spacing: 25px;
+    word-spacing: 25px;
+
+}
+
+h3 {
+    font-size: 25px;
+    font-family: "Arial Narrow";
+    letter-spacing: 16px;
+    word-spacing: 16px;
+}
+
+h4 {
+    font-size: 20px;
+
+}
+
+h5 {
+    font-size: 15px
+}
+
+h6 {
+    font-size: 10px;
+    font-family: "Comic Sans MS";
+    color: rosybrown;
+}
+
+p {
+    font-size: 10px;
+    font-family: "Comic Sans MS";
+    color: green;
+    font-weight: bold;
+    text-align: center;
+    /*Ejercicio 4 color rojo = ff0000*/
+}
+
+body {
+    color: chocolate;
+    font-family: Candara;
+
+}

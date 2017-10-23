@@ -15,7 +15,7 @@ class Baraja {
             this.array_montones.push(new Monton(i))
 
         }
-        for (let j = 0; j< this.array_montones.length;j++){
+        for (let j = 0; j < this.array_montones.length; j++) {
             Baraja.shuffle(this.array_montones[j].array_cartas)
 
         }
@@ -35,7 +35,9 @@ class Baraja {
     mover_carta(de_que_columna, de_que_fila = 0, a_que_columna) {
 
         let array_a_mover = this.columnas[de_que_columna].splice(de_que_fila);
-        this.columnas[a_que_columna].push(...array_a_mover);
+        this.columnas[a_que_columna].push(...array_a_mover
+    )
+        ;
         if (de_que_fila - 1 >= 0)
             this.columnas[de_que_columna][de_que_fila - 1].status = true;
         this.mostrar_baraja()
@@ -95,8 +97,9 @@ class Baraja {
             this.columnas.push(array_columnas)
             this.columnas.forEach(columna => {
                 columna[columna.length - 1].status = true;
-            });
-            console.log(this.columnas)
+        })
+            ;
+            console.log(this.columnas + "")
 
         }
         this.mostrar_baraja()
