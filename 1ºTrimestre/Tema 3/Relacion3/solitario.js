@@ -23,7 +23,7 @@ class Baraja {
 
 
     static shuffle(a) {
-        let j
+        let j;
         for (let i = a.length - 1; i > 0; i--) {
             j = Math.floor(Math.random() * (i + 1));
             [a[i], a[j]] = [a[j], a[i]];
@@ -36,11 +36,19 @@ class Baraja {
 
         let array_a_mover = this.columnas[de_que_columna].splice(de_que_fila);
         this.columnas[a_que_columna].push(...array_a_mover
-    )
+        )
         ;
-        if (de_que_fila - 1 >= 0)
-            this.columnas[de_que_columna][de_que_fila - 1].status = true;
-        this.mostrar_baraja()
+        if (this.columnas[de_que_columna][1
+                ].numero > this.columnas[a_que_columna].numero ){
+            alert("error")
+        }
+        else{
+
+
+            if (de_que_fila - 1 >= 0)
+                this.columnas[de_que_columna][de_que_fila - 1].status = true;
+            this.mostrar_baraja()
+        }
 
     }
 
@@ -59,12 +67,11 @@ class Baraja {
                 else {
                     html_str += "🂠"
                 }
-
                 html_str += '</div>';
             }
             html_str += '</div>';
         }
-        console.log(this.columnas)
+        console.log(this.columnas);
         tablero.innerHTML = html_str;
     }
 
@@ -97,7 +104,7 @@ class Baraja {
             this.columnas.push(array_columnas)
             this.columnas.forEach(columna => {
                 columna[columna.length - 1].status = true;
-        })
+            })
             ;
             console.log(this.columnas + "")
 
