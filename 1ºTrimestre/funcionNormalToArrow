@@ -1,0 +1,5 @@
+Original:
+function ([A-Z]*)\w\(([A-Z]*)\)
+
+Replace to:
+let $1 = ($2) =>

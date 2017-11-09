@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 4</title>
+</head>
+<style>
+    .divboton .boton {
+        border-radius: 25px;
+
+    }
+
+    #dentro {
+        
+    }
+
+    ul {
+        background-color: beige;
+        margin-bottom: 25px;
+    }
+
+    ul li {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+</style>
+<body>
+<pre>4. Crea una web con una lista de elementos y un botón que cada vez que pulsemos
+introduzca una entrada nueva en la lista.</pre>
+<script src="ejercicio4.js"></script>
+<ul id="atalgaba">
+    Que es lo que más te gusta de antonio
+    <li>
+        Su pelo
+    </li>
+    <li>
+        Lo guapo que es
+    </li>
+</ul>
+<div id="divinput">
+    <input id="dentro" value="" placeholder="Introduce algo que te guste">
+</div>
+<div class="divboton">
+    <button onclick="añadir()" class="boton">Añade</button>
+</div>
+</body>
+</html>
