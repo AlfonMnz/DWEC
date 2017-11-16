@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+<pre>
+    1) Diseña una web que hará uso de cookies para guardar el nombre del usuario.
+    En caso de no tener ninguna cookie de ese sitio, deberá preguntar el nombre del usuario y almacenarlo en una cookie
+    que caducará en 5 minutos. Tras esto saludará al usuario mediante un mensaje en pantalla. En caso de tener ya creada
+    la cookie deberá leerla y mostrar el mensaje anterior directamente. Deberá proporcionar también un enlace para borrar
+    la cookie (lo que podríamos llamar 'Cerrar Sesión').
+</pre>
+
+<div id="form">
+    <form>
+        <label>Nombre de Usuario</label>
+
+        <input type="text" id="nombreUsuario">
+        <label>Contraseña</label>
+        <input  type="password" id="contraseña">
+
+    </form>
+    <button onclick="crearCookie()">Click me!</button>
+</div>
+<script src="ejercicio1.js"></script>
+</body>
+</html>

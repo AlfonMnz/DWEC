@@ -1,0 +1,10 @@
+.canvas {
+    margin: 0 auto;
+    display: block;
+    background-color: #666666;
+    border-radius: 10px;
+    border: 8px solid black;
+}
+.pelota{
+    background-image: url("pelotaRoja0.png");
+}

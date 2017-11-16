@@ -1,9 +1,9 @@
 let pabajo;
-let paderecha
+let paderecha;
 let pabajo2;
 let paderecha2;
 pabajo = true;
-paderecha = true
+paderecha = true;
 pabajo2 = true;
 paderecha2 = true;
 
@@ -12,7 +12,7 @@ function mover() {
     let circulo;
 
     circulo = document.getElementById("circulo");
-    console.log(circulo[0].x)
+    console.log(circulo[0].x);
     let py;
     let px;
     px = circulo.getAttribute("cx");
@@ -75,10 +75,10 @@ function mover() {
             paderecha2 = false;
         }
     }
-    let width1 = circulo.getAttribute("width")
-    let height1 = circulo.getAttribute("height")
-    let width2 = circulo2.getAttribute("width")
-    let height2 = circulo2.getAttribute("height")
+    let width1 = circulo.getAttribute("width");
+    let height1 = circulo.getAttribute("height");
+    let width2 = circulo2.getAttribute("width");
+    let height2 = circulo2.getAttribute("height");
     if (px < px2 + width2 &&
         px + width1 > px2 &&
         py < py2 + height2 &&

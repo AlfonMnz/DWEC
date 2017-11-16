@@ -17,11 +17,12 @@ class Gato {
         this.raza = raza
     }
     caracteristicas(){
-        console.log("me llamo " + this.+ " tengo "+ this.edad + " años" + " mido " + this.tamaño + " cm" + " y soy un "+ this.raza)
+        console.log("me llamo " + this._nombre+ " tengo "+ this.edad + " años" + " mido " + this.tamaño + " cm" + " y soy un "+ this.raza)
 
     }
 }
 var g = new Gato("misifu",2,24,"siames")
+g.
 g.caracteristicas()
 class JaulaGatitos {
     constructor() {
