@@ -14,10 +14,9 @@ class Nota {
     static crear_nota() {
         console.log("holi")
         let nueva_nota = document.createElement("div");
-        cont++;
 
         nueva_nota.setAttribute('class', "nota");
-        nueva_nota.setAttribute("id", "nota"+cont);
+        nueva_nota.setAttribute("id", "nota";
         contenedor_nota.appendChild(nueva_nota);
         var el = document.getElementById('nota'+cont);
         var mover = false, x, y, posx, posy, first = true;
