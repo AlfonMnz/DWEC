@@ -1,0 +1,32 @@
+.contenedor_nota {
+    margin: 0 auto;
+    display: block;
+    background-color: #666666;
+    border-radius: 10px;
+    border: 8px solid black;
+    width: 1200px;
+    height: 600px;
+
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.nota input {
+    background-color: darkgoldenrod;
+    margin-left: 5px;
+    min-height: 100px;
+    max-width: 100px;
+    flex: 0 0 100px;
+    margin-bottom: 5px;
+
+}
+
+.texto {
+    align-items: center;
+    font-family: "Comic Sans MS";
+}
+.boton{
+    flex: 0 0 100px;
+    width: 100px;
+    height: 100px;
+}

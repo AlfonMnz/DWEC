@@ -30,12 +30,15 @@ class Partida {
 class Pelota {
 
     constructor(color = "", partida) {
+        this.partida = partida
         this.division = 0;
         this.x = 0;
         this.y = 0;
-        this.color = color;
+        this.fill = color;
+        this.radio = 50
         this.poner_coordenadas();
-        this.objeto_svg = this.crear_objeto_svg(partida);
+        this.objeto_svg = this.crear_objeto_svg(this.partida);
+
 
         this.pa_derecha = false;
         this.pa_abajo = false;
@@ -45,6 +48,7 @@ class Pelota {
         }, 1000 / FPS);
     }
 
+
     poner_coordenadas() {
         this.x = Math.floor(Math.random() * (1000 + 1));
         this.y = Math.floor(Math.random() * (600 + 1));
@@ -52,39 +56,36 @@ class Pelota {
     }
 
     crear_objeto_svg(partida) {
-        //let image = document.createElement('image');
+        let circulo = document.createElementNS(svgNS, 'circle');
         //image.setAttribute( 'xlink:href', 'pelotaRoja0.png');
-        //circulo.setAttributeNS(null, "cx", this.x);
-        //circulo.setAttributeNS(null, "cy", this.y);
-        //circulo.setAttributeNS(null, "r", "25");
-        //circulo.setAttributeNS(null, "fill", "red")
-        //circulo.setAttribute(null, "class", "pelota")
-        //image.setAttribute("height", "50");
-        //image.setAttribute("width", "50");
-        //image.setAttribute( 'x', "25");
-        //image.setAttribute( 'y', "25");
-//
-        //partida.canvas.appendChild(image);
-//
-        ////return circulo;
+        circulo.setAttributeNS(null, "cx", this.x);
+        circulo.setAttributeNS(null, "cy", this.y);
+        circulo.setAttributeNS(null, "r", this.radio);
+        circulo.setAttributeNS(null, "fill", "red")
 
 
-        var svgimg = document.createElementNS('http://www.w3.org/2000/svg','image');
-        svg.setAttributeNS('http://www.w3.org/2000/svg','width','200');
-        svg.setAttributeNS('http://www.w3.org/2000/svg','id','test2');
-        svgimg.setAttributeNS('http://www.w3.org/2000/svg','height','100');
-        svgimg.setAttributeNS('http://www.w3.org/2000/svg','width','100');
+        partida.canvas.appendChild(circulo);
+
+        return circulo;
+
+
+        var svgimg = document.createElementNS('http://www.w3.org/2000/svg', 'image');
+        svg.setAttributeNS('http://www.w3.org/2000/svg', 'width', '200');
+        svg.setAttributeNS('http://www.w3.org/2000/svg', 'id', 'test2');
+        svgimg.setAttributeNS('http://www.w3.org/2000/svg', 'height', '100');
+        svgimg.setAttributeNS('http://www.w3.org/2000/svg', 'width', '100');
     }
 
     motor() {
         this.mover()
     }
 
+
     mover() {
+
         this.cy = this.objeto_svg.getAttribute("cy")
         this.cx = this.objeto_svg.getAttribute("cx")
-        console.log(this.cx)
-        console.log(this.cy)
+
         if (!this.pa_abajo) {
             this.objeto_svg.setAttribute("cy", (parseInt(this.objeto_svg.getAttribute("cy")) - 3).toString());
             if (this.cy <= 0) {
@@ -109,13 +110,30 @@ class Pelota {
                 this.pa_derecha = false;
             }
         }
+        this.colision()
 
     }
 
+    colision() {
+        for (let i = 0; i < this.partida.array_pelotas.length; i++) {
+            var dx = this.cx - this.partida.array_pelotas[i].cx;
+            var dy = this.cy - this.partida.array_pelotas[i].cy;
+            var distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < this.radio + this.partida.array_pelotas[i].radio) {
+                this.cx = 0
+                this.partida.array_pelotas[i].cx = 1100
+                console.log("tocado")
+            }
+        }
+    }
+
 }
-class PersonajeTopeGuapo{
-    constructor(){
-        this.vidas= 3
+
+class PersonajeTopeGuapo {
+    constructor() {
+        this.vidas = 3
     }
 }
+
 let p = new Partida();
