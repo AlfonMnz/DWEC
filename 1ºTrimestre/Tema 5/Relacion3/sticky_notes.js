@@ -1,47 +1,44 @@
 const contenedor_nota = document.getElementById("contenedorNotas");
-let cont
-cont = 0
+var cont;
+cont = 0;
 
 class Nota {
     constructor(mensaje = "", fecha = new Date()) {
         this.mensaje = mensaje;
         this.fecha = fecha;
-        Nota.crear_nota()
+        this.crear_nota();
+        this.select = false
 
 
     }
 
-    static crear_nota() {
-        console.log("holi")
+    crear_nota() {
+
         let nueva_nota = document.createElement("div");
-
+        let titulo = document.createElement("input");
+        titulo.setAttribute("value", "Añadir Título");
+        titulo.setAttribute("class", "titulo");
+        titulo.setAttribute("maxlength", 10);
         nueva_nota.setAttribute('class', "nota");
-        nueva_nota.setAttribute("id", "nota";
+        nueva_nota.addEventListener('mousedown', () => {
+            this.seleccionar();
+        });
+
+        //nueva_nota.setAttribute("id", "nota");
+
         contenedor_nota.appendChild(nueva_nota);
-        var el = document.getElementById('nota'+cont);
-        var mover = false, x, y, posx, posy, first = true;
-        el.onmousedown = function () {
-            mover = true;
-        };
-        el.onmouseup = function () {
-            mover = false;
-            first = true;
-        };
-        el.onmousemove = function (e) {
-            if (mover) {
-                if (first) {
-                    x = e.offsetX;
-                    y = e.offsetY;
-                    first = false;
-                }
-                posx = e.pageX - x;
-                posy = e.pageY - y;
-                this.style.left = posx + 'px';
-                this.style.top = posy + 'px';
-            }
-        };
+        nueva_nota.appendChild(titulo)
+
 
     }
+
+    seleccionar() {
+        this.select = true;
+        console.log(this)
+
+
+    }
+
 }
 
 class lista_notas {

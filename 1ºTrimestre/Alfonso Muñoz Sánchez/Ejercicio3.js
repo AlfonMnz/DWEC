@@ -10,7 +10,7 @@ class Gato {
 
     constructor(nombre, edad, tamaño, raza) {
 
-
+        let holi;
         this._nombre = nombre;
         this.edad = edad;
         this.tamaño =tamaño
