@@ -6,7 +6,7 @@ class Nota {
     constructor(mensaje = "", fecha = new Date()) {
         this.mensaje = mensaje;
         this.fecha = fecha;
-        this.crear_nota();
+        this.objet = this.crear_nota();
         this.select = false
 
 
@@ -20,23 +20,41 @@ class Nota {
         titulo.setAttribute("class", "titulo");
         titulo.setAttribute("maxlength", 10);
         nueva_nota.setAttribute('class', "nota");
-        nueva_nota.addEventListener('mousedown', () => {
-            this.seleccionar();
+        //nueva_nota.addEventListener('click', (event) => {
+        //    this.seleccionar(event);
+        //});
+        nueva_nota.setAttribute('draggable', "true");
+        //nueva_nota.setAttribute('ondrop', this.dejar);
+        nueva_nota.addEventListener('dragstart', (event) => {
+            console.log('pepebotijo');
+            this.seleccionar(event);
         });
-
-        //nueva_nota.setAttribute("id", "nota");
-
+        nueva_nota.addEventListener('drop', (event) => {
+            console.log('juan');
+            this.dejar(event);
+        });
         contenedor_nota.appendChild(nueva_nota);
-        nueva_nota.appendChild(titulo)
+        nueva_nota.appendChild(titulo);
+        return nueva_nota
 
 
     }
 
-    seleccionar() {
-        this.select = true;
-        console.log(this)
+    seleccionar(event) {
+        this.startX = event.clientX;
+        this.startY = event.clientY;
+        console.log(this.startX)
+        console.log(this.startY)
+    }
 
+    dejar(event) {
+        console.log("holi")
+    }
 
+    posiciones(e) {
+
+        this.offsetX = parseInt(this.elemento.offsetLeft);
+        this.offsetY = parseInt(this.elemento.offsetTop);
     }
 
 }
@@ -48,10 +66,6 @@ class lista_notas {
 
     add_nota(nota) {
         this.array_notas.push(nota)
-    }
-
-    mostrar_nota() {
-
     }
 }
 
