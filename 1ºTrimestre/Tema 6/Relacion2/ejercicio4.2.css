@@ -1,0 +1,11 @@
+.texto label {
+    font-family: "Comic Sans MS";
+}
+.texto{
+    border: 2px solid;
+    background-color: #ffffcc;
+}
+.texto input{
+    border-radius: 3px;
+
+}

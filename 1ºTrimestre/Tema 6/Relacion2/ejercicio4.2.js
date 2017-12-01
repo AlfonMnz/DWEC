@@ -1,4 +1,3 @@
-let mijson;
 const caja = document.getElementById("intUsuario");
 const perror = document.getElementById("error");
 
@@ -23,12 +22,12 @@ function mostrarCosa(obj) {
     for (let i = 0; i < obj.usuarios.length && !esta; i++) {
         let users = obj.usuarios[i];
         if (caja.value == users.username) {
-            perror.innerHTML = "Está en uso";
+            perror.innerHTML = "Está en uso, prueba con " + users.username + "_" + 619 + "REYMISTERIO";
             esta = true;
         }
         else {
             perror.innerHTML = "Adelante usalo"
         }
     }
-}
 
+}
