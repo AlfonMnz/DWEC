@@ -1,0 +1,1 @@
+$('ol li:nth-child(1)').hide(1500);
