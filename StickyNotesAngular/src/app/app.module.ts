@@ -3,13 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { MenuSuperiorComponent } from './menu-superior/menu-superior.component';
+import { NotaComponent } from './nota/nota.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuSuperiorComponent
+    NotaComponent
   ],
   imports: [
     BrowserModule

@@ -1,0 +1,9 @@
+<button (click)="crearNota()">
+  Crear nota
+</button>
+
+<div *ngFor="let nota of listaNotas" class="nota">
+  <p class="titulo">{{nota.titulo}}</p>
+  <p>{{nota.contenido}}</p>
+</div>
+

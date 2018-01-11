@@ -1,0 +1,36 @@
+li{
+  list-style: none;
+}
+.nota {
+  background-color: darkgoldenrod;
+  margin-left: 5px;
+  min-height: 100px;
+  max-width: 100px;
+  flex: 0 0 100px;
+  margin-bottom: 5px;
+  position: absolute;
+  top: 150px;
+
+}
+
+.titulo {
+  min-height: 5px;
+  max-width: 98%;
+
+  resize: none;
+  border: none;
+  border-bottom: solid 1px;
+  background-color: darkgoldenrod;
+  font-weight: bold;
+}
+
+.texto {
+  align-items: center;
+  font-family: "Comic Sans MS";
+}
+
+.boton {
+  flex: 0 0 100px;
+  width: 100px;
+  height: 100px;
+}

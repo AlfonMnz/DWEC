@@ -1,0 +1,8 @@
+li{
+  list-style: none;
+}
+.nota{
+  background-color: darkgoldenrod;
+  width: 100px;
+  height: 100px;
+}
