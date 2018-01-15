@@ -3,4 +3,4 @@
 
 Enlace a uso de OMDB API
 
-alfonmnz.github.io/DWEC/HacheBeO/index.html
+http://alfonmnz.github.io/DWEC/HacheBeO/index.html
