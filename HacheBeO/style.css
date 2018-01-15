@@ -31,9 +31,21 @@ body {
 
 #cuerpo {
     background-color: aquamarine;
-    height: 1000px;
+    height: auto;
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     justify-content: flex-start;
-    align-content: center;
+    box-sizing: border-box;
+}
+.pelicula{
+    box-sizing: border-box;
+    width: 10%;
+    height: auto;
+    margin: 20px;
+
+}
+.pelicula img{
+    width: 100%;
+    height: 150px;
 }
