@@ -5,7 +5,7 @@ Asignatura dedicada a explicar el funcionamiento del código en front-end
 
 ## [1º Timestre](https://alfonmnz.github.io/DWEC/1ºTrimestre)
 
-* [Tema 1](https://alfonMnz.github.io/DWEC/1ºTrimestre/Tema1)
+* [Tema 1](https://alfonMnz.github.io/DWEC/1ºTrimestre/Tema%201)
 * [Tema 2](https://alfonMnz.github.io/DWEC/1ºTrimestre/Tema2)
 * [Tema 3](https://alfonMnz.github.io/DWEC/1ºTrimestre/Tema3)
 * [Tema 4](https://alfonMnz.github.io/DWEC/1ºTrimestre/Tema4)
